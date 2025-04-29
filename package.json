@@ -3,14 +3,12 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "homepage": "https://k1sssh0t.github.io",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
+
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.12",
