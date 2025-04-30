@@ -8,7 +8,7 @@ function App() {
 
   return (
     // Remove specific background and text color classes, rely on index.css body styles
-    <div className="flex flex-col items-center justify-center min-h-screen p-4 font-mono">
+    <div className="flex flex-col items-center justify-center min-h-screen p-4 font-mono bg-foreground text-secondary">
       <div className="mb-4 flex space-x-4"> {/* Added flex and space-x */}
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo h-12 w-12" alt="Vite logo" /> {/* Adjusted size */}
@@ -22,10 +22,10 @@ function App() {
       <div className="flex flex-col items-center space-y-4"> {/* Increased space */}
         {/* Button styles are handled by variants in button.tsx and variables in index.css */}
         <Button
-          variant="outline"
+          variant="outline_v2"
           onClick={() => setCount((count) => count + 1)}
         >
-          count is {count}
+          TEXTO DE PRUEBAAAAAAAAAA {count}
         </Button>
         {/* Remove specific text color, rely on inherited foreground or muted-foreground */}
         <p>

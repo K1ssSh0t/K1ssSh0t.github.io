@@ -6,7 +6,7 @@ import { HashRouter } from 'react-router'
 import { ThemeProvider } from '@/components/theme-provider.tsx'
 
 createRoot(document.getElementById('root')!).render(
-  <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+  <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
     <HashRouter>
       <StrictMode>
         <App />
