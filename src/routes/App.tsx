@@ -11,6 +11,7 @@ function useParallax(value: MotionValue<number>, distance: number) {
 function Section({ id, children }: { id: string, children: React.ReactNode }) {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref })
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const y = useParallax(scrollYProgress, 300)
 
   return (
@@ -37,21 +38,23 @@ function App() {
   })
 
   return (
-    <div className=" bg-foreground">
+    <div className="bg-foreground">
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-background origin-left"
+        className="fixed top-0 left-0 right-0 h-1 bg-background"
         style={{ scaleX }}
       />
 
-      <motion.section
-        className="h-screen flex items-center justify-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      >
-        <h1 className="text-3xl font-bold text-secondary">
-          Angel Omar Matias Velasquez / Fullstack Developer
-        </h1>
-      </motion.section>
+      <Section id="hero">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+        >
+          <h1 className="text-3xl font-bold text-secondary">
+            Angel Omar Matias Velasquez / Fullstack Developer
+          </h1>
+        </motion.div>
+      </Section>
 
       <Section id="about">
         <Card className="max-w-prose w-full">
