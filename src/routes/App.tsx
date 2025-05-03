@@ -2,11 +2,38 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { motion, useScroll, useTransform, useSpring, MotionValue } from "motion/react"
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 
 function useParallax(value: MotionValue<number>, distance: number) {
   return useTransform(value, [0, 1], [-distance, distance])
 }
+
+const useTypewriter = (words: string[]) => {
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+  const [reverse, setReverse] = useState(false);
+
+  useEffect(() => {
+    if (subIndex === words[index].length + 1 && !reverse) {
+      setReverse(true);
+      return;
+    }
+
+    if (subIndex === 0 && reverse) {
+      setReverse(false);
+      setIndex((prev) => (prev + 1) % words.length);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setSubIndex((prev) => prev + (reverse ? -1 : 1));
+    }, Math.max(reverse ? 25 : 50, Math.random() * 100));
+
+    return () => clearTimeout(timeout);
+  }, [subIndex, index, reverse, words]);
+
+  return words[index].substring(0, subIndex);
+};
 
 function Section({ id, children }: { id: string, children: React.ReactNode }) {
   const ref = useRef(null)
@@ -30,6 +57,15 @@ function Section({ id, children }: { id: string, children: React.ReactNode }) {
 }
 
 function App() {
+  const roles = [
+    "Fullstack Developer",
+    "Web Developer",
+    "React Developer",
+    "TypeScript Developer",
+    "Software Engineer"
+  ];
+  const typedText = useTypewriter(roles);
+
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -51,7 +87,15 @@ function App() {
           transition={{ duration: 1.5 }}
         >
           <h1 className="text-3xl font-bold text-secondary">
-            Angel Omar Matias Velasquez / Fullstack Developer
+            Angel Omar Matias Velasquez / <br /> {" "}
+            <motion.span
+              className="text-secondary inline-block"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.05 }}
+            >
+              {typedText}
+            </motion.span>
           </h1>
         </motion.div>
       </Section>
@@ -160,7 +204,7 @@ function App() {
             <CardTitle>Contact</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground mb-2">
+            <p className=" mb-2">
               Feel free to reach out via email or connect with me on GitHub!
             </p>
             <div className="flex flex-col items-center space-y-2">
@@ -184,7 +228,7 @@ function App() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-secondary">
           © {new Date().getFullYear()} Angel Omar Matias Velasquez. All rights reserved.
         </p>
       </motion.div>
