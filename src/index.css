@@ -111,6 +111,10 @@
   --sidebar-ring: oklch(0.6 0.03 85);
 }
 
+html {
+  scroll-snap-type: y mandatory;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
