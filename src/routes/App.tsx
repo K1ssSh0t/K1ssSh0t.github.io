@@ -38,7 +38,7 @@ const useTypewriter = (words: string[]) => {
 function Section({ id, children }: { id: string, children: React.ReactNode }) {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref })
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
   const y = useParallax(scrollYProgress, 300)
 
   return (
