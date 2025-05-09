@@ -110,9 +110,10 @@ function App() {
               I am a passionate full-stack developer with experience in building web applications using modern technologies.
               My main stack includes{" "}
               <span className="font-semibold text-primary">
-                Next.js, React, Tailwind CSS, JavaScript, TypeScript
+                Next.js, Node.js, React, Tailwind CSS, JavaScript, TypeScript
               </span>{" "}
-              and both frontend & backend development.
+              and both frontend & backend development. And basic knowledge of{" "}
+              <span className="font-semibold text-primary">Java, Python and Go</span>.
               I love coding, solving complex problems, and building efficient, user-friendly applications.
               <br /><br />
               I am always eager to learn new technologies and improve my skills. I enjoy collaborating with others, sharing knowledge, and contributing to open-source.
@@ -133,6 +134,7 @@ function App() {
               <Badge>Supabase</Badge>
               <Badge>Node.js</Badge>
               <Badge>React Native</Badge>
+              <Badge>Full Stack</Badge>
             </div>
           </CardContent>
         </Card>
@@ -165,14 +167,14 @@ function App() {
                 <Card className="bg-muted">
                   <CardHeader>
                     <CardTitle>
-                      <a href="https://github.com/K1ssSh0t/next13-supabase-auth-template" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary">
-                        Next13 Supabase Auth Template
+                      <a href="https://github.com/K1ssSh0t/rn-fgo-api" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary">
+                        React Native API consumtion for Fate/Grand Order
                       </a>
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-muted-foreground">
-                      Boilerplate for authentication using Next.js 13 and Supabase, ready to kickstart new projects.
+                      React Native mobile app that uses an API frOM Fate/Grand Order. This project showcases my skills in mobile development and API integration.
                     </p>
                   </CardContent>
                 </Card>
@@ -188,12 +190,21 @@ function App() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-muted-foreground">
-                      Gym management project using TypeScript and modern web technologies.
+                      Gym management project using TypeScript and modern web technologies, Like Stripe and Supabase.
                     </p>
                   </CardContent>
                 </Card>
               </li>
             </ul>
+            <p className="mt-4">
+              For more projects, check out my{" "}
+              <Button asChild variant="link" className="p-0 h-auto">
+                <a href="https://github.com/K1ssSh0t" target="_blank" rel="noopener noreferrer">
+                  GitHub profile
+                </a>
+              </Button>
+            </p>
+
           </CardContent>
         </Card>
       </Section>
@@ -210,7 +221,7 @@ function App() {
             <div className="flex flex-col items-center space-y-2">
               <Button asChild variant="link" className="p-0 h-auto">
                 <a href="mailto:angel.velasquez.dev@gmail.com">
-                  angel.velasquez.dev@gmail.com
+                  angelomarmatias@gmail.com
                 </a>
               </Button>
               <Button asChild variant="link" className="p-0 h-auto">
