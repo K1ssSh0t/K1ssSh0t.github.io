@@ -195,6 +195,22 @@ function App() {
                   </CardContent>
                 </Card>
               </li>
+              <li>
+                <Card className="bg-muted">
+                  <CardHeader>
+                    <CardTitle>
+                      <a href="https://github.com/K1ssSh0t/ts-movie-reservation-system" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary">
+                        Movie Reservation System
+                      </a>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">
+                      Movie reservation system built with TypeScript, Hono, Bun, Drizzle ORM, and PostgreSQL. This project showcases my skills in backend development and database management.
+                    </p>
+                  </CardContent>
+                </Card>
+              </li>
             </ul>
             <p className="mt-4">
               For more projects, check out my{" "}
