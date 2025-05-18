@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { motion, useScroll, useTransform, useSpring, MotionValue } from "motion/react"
 import { useRef, useState, useEffect } from "react"
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 function useParallax(value: MotionValue<number>, distance: number) {
   return useTransform(value, [0, 1], [-distance, distance])
@@ -141,88 +142,106 @@ function App() {
       </Section>
 
       <Section id="projects">
-        <Card className="max-w-prose w-full">
-          <CardHeader>
-            <CardTitle>Projects</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ul className="space-y-3">
-              <li>
-                <Card className="bg-muted">
-                  <CardHeader>
-                    <CardTitle>
-                      <a href="https://github.com/K1ssSh0t/full-stack-todos-app" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary">
-                        Full Stack Todos App
-                      </a>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      Todos App built with Next.js 13 and Supabase. Full-stack project demonstrating authentication, CRUD, and modern UI.
-                    </p>
-                  </CardContent>
-                </Card>
-              </li>
-              <li>
-                <Card className="bg-muted">
-                  <CardHeader>
-                    <CardTitle>
-                      <a href="https://github.com/K1ssSh0t/rn-fgo-api" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary">
-                        React Native API consumtion for Fate/Grand Order
-                      </a>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      React Native mobile app that uses an API frOM Fate/Grand Order. This project showcases my skills in mobile development and API integration.
-                    </p>
-                  </CardContent>
-                </Card>
-              </li>
-              <li>
-                <Card className="bg-muted">
-                  <CardHeader>
-                    <CardTitle>
-                      <a href="https://github.com/K1ssSh0t/proyecto-gimnasio" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary">
-                        Proyecto Gimnasio
-                      </a>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      Gym management project using TypeScript and modern web technologies, Like Stripe and Supabase.
-                    </p>
-                  </CardContent>
-                </Card>
-              </li>
-              <li>
-                <Card className="bg-muted">
-                  <CardHeader>
-                    <CardTitle>
-                      <a href="https://github.com/K1ssSh0t/ts-movie-reservation-system" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary">
-                        Movie Reservation System
-                      </a>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      Movie reservation system built with TypeScript, Hono, Bun, Drizzle ORM, and PostgreSQL. This project showcases my skills in backend development and database management.
-                    </p>
-                  </CardContent>
-                </Card>
-              </li>
-            </ul>
-            <p className="mt-4">
-              For more projects, check out my{" "}
-              <Button asChild variant="link" className="p-0 h-auto">
-                <a href="https://github.com/K1ssSh0t" target="_blank" rel="noopener noreferrer">
-                  GitHub profile
-                </a>
-              </Button>
-            </p>
+        <ScrollArea className="h-[calc(100vh-5rem)] ">
+          <Card className="max-w-prose w-full">
+            <CardHeader>
+              <CardTitle>Projects</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3">
+                <li>
+                  <Card className="bg-muted">
+                    <CardHeader>
+                      <CardTitle>
+                        <a href="https://github.com/K1ssSh0t/full-stack-todos-app" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary">
+                          Full Stack Todos App
+                        </a>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">
+                        Todos App built with Next.js 13 and Supabase. Full-stack project demonstrating authentication, CRUD, and modern UI.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </li>
+                <li>
+                  <Card className="bg-muted">
+                    <CardHeader>
+                      <CardTitle>
+                        <a href="https://github.com/K1ssSh0t/rn-fgo-api" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary">
+                          React Native API consumtion for Fate/Grand Order
+                        </a>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">
+                        React Native mobile app that uses an API frOM Fate/Grand Order. This project showcases my skills in mobile development and API integration.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </li>
+                <li>
+                  <Card className="bg-muted">
+                    <CardHeader>
+                      <CardTitle>
+                        <a href="https://github.com/K1ssSh0t/proyecto-gimnasio" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary">
+                          Proyecto Gimnasio
+                        </a>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">
+                        Gym management project using TypeScript and modern web technologies, Like Stripe and Supabase.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </li>
+                <li>
+                  <Card className="bg-muted">
+                    <CardHeader>
+                      <CardTitle>
+                        <a href="https://github.com/K1ssSh0t/ts-movie-reservation-system" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary">
+                          Movie Reservation System
+                        </a>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">
+                        Movie reservation system built with TypeScript, Hono, Bun, Drizzle ORM, and PostgreSQL. This project showcases my skills in backend development and database management.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </li>
+                <li>
+                  <Card className="bg-muted">
+                    <CardHeader>
+                      <CardTitle>
+                        <a href="https://github.com/K1ssSh0t/ts-realtime-leaderboard" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary">
+                          TS Realtime Leaderboard
+                        </a>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">
+                        Realtime leaderboard built with Hono, bun adn redis. This project showcases my skills in backend development and database management.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </li>
+              </ul>
+              <p className="mt-4">
+                For more projects, check out my{" "}
+                <Button asChild variant="link" className="p-0 h-auto">
+                  <a href="https://github.com/K1ssSh0t" target="_blank" rel="noopener noreferrer">
+                    GitHub profile
+                  </a>
+                </Button>
+              </p>
 
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </ScrollArea>
       </Section>
 
       <Section id="contact">
