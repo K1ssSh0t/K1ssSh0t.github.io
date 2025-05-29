@@ -49,9 +49,7 @@ function Section({ id, children }: { id: string, children: React.ReactNode }) {
       ref={ref}
     >
       <div className="max-w-prose w-full">
-
         {children}
-
       </div>
     </motion.section>
   )
@@ -75,9 +73,9 @@ function App() {
   })
 
   return (
-    <div className="bg-foreground  inset-0 -z-10 h-full w-full  bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
+    <div className="bg-background min-h-screen">
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-background"
+        className="fixed top-0 left-0 right-0 h-1 bg-primary"
         style={{ scaleX }}
       />
 
@@ -87,27 +85,27 @@ function App() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
         >
-          <h1 className="text-3xl font-bold text-secondary">
-            Angel Omar Matias Velasquez / <br /> {" "}
-            <motion.span
-              className="text-secondary inline-block"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.05 }}
-            >
-              {typedText}
-            </motion.span>
+          <h1 className="text-4xl font-bold text-foreground mb-4">
+            Angel Omar Matias Velasquez
           </h1>
+          <motion.h2
+            className="text-2xl text-primary inline-block"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.05 }}
+          >
+            {typedText}
+          </motion.h2>
         </motion.div>
       </Section>
 
       <Section id="about">
-        <Card className="max-w-prose w-full">
+        <Card>
           <CardHeader>
             <CardTitle>About Me</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>
+            <p className="text-card-foreground">
               I am a passionate full-stack developer with experience in building web applications using modern technologies.
               My main stack includes{" "}
               <span className="font-semibold text-primary">
@@ -121,7 +119,7 @@ function App() {
               <br /><br />
               Currently, I am looking for new opportunities to grow and contribute to exciting projects. If you are interested in collaborating or have any questions, feel free to reach out!
             </p>
-            <div className="mt-4 flex flex-wrap justify-center gap-2">
+            <div className="mt-4 flex flex-wrap gap-2">
               <Badge>Next.js</Badge>
               <Badge>React</Badge>
               <Badge>Tailwind CSS</Badge>
@@ -135,22 +133,21 @@ function App() {
               <Badge>Supabase</Badge>
               <Badge>Node.js</Badge>
               <Badge>React Native</Badge>
-              <Badge>Full Stack</Badge>
             </div>
           </CardContent>
         </Card>
       </Section>
 
       <Section id="projects">
-        <ScrollArea className="h-[calc(100vh-5rem)] ">
-          <Card className="max-w-prose w-full">
+        <ScrollArea className="h-[calc(100vh-5rem)]">
+          <Card>
             <CardHeader>
               <CardTitle>Projects</CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 <li>
-                  <Card className="bg-muted">
+                  <Card>
                     <CardHeader>
                       <CardTitle>
                         <a href="https://github.com/K1ssSh0t/full-stack-todos-app" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary">
@@ -159,30 +156,30 @@ function App() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-card-foreground">
                         Todos App built with Next.js 13 and Supabase. Full-stack project demonstrating authentication, CRUD, and modern UI.
                       </p>
                     </CardContent>
                   </Card>
                 </li>
                 <li>
-                  <Card className="bg-muted">
+                  <Card>
                     <CardHeader>
                       <CardTitle>
                         <a href="https://github.com/K1ssSh0t/rn-fgo-api" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary">
-                          React Native API consumtion for Fate/Grand Order
+                          React Native API consumption for Fate/Grand Order
                         </a>
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-sm text-muted-foreground">
-                        React Native mobile app that uses an API frOM Fate/Grand Order. This project showcases my skills in mobile development and API integration.
+                      <p className="text-card-foreground">
+                        React Native mobile app that uses an API from Fate/Grand Order. This project showcases my skills in mobile development and API integration.
                       </p>
                     </CardContent>
                   </Card>
                 </li>
                 <li>
-                  <Card className="bg-muted">
+                  <Card>
                     <CardHeader>
                       <CardTitle>
                         <a href="https://github.com/K1ssSh0t/proyecto-gimnasio" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary">
@@ -191,14 +188,14 @@ function App() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-card-foreground">
                         Gym management project using TypeScript and modern web technologies, Like Stripe and Supabase.
                       </p>
                     </CardContent>
                   </Card>
                 </li>
                 <li>
-                  <Card className="bg-muted">
+                  <Card>
                     <CardHeader>
                       <CardTitle>
                         <a href="https://github.com/K1ssSh0t/ts-movie-reservation-system" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary">
@@ -207,14 +204,14 @@ function App() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-card-foreground">
                         Movie reservation system built with TypeScript, Hono, Bun, Drizzle ORM, and PostgreSQL. This project showcases my skills in backend development and database management.
                       </p>
                     </CardContent>
                   </Card>
                 </li>
                 <li>
-                  <Card className="bg-muted">
+                  <Card>
                     <CardHeader>
                       <CardTitle>
                         <a href="https://github.com/K1ssSh0t/ts-realtime-leaderboard" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary">
@@ -223,14 +220,14 @@ function App() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-sm text-muted-foreground">
-                        Realtime leaderboard built with Hono, bun adn redis. This project showcases my skills in backend development and database management.
+                      <p className="text-card-foreground">
+                        Realtime leaderboard built with Hono, Bun and Redis. This project showcases my skills in backend development and database management.
                       </p>
                     </CardContent>
                   </Card>
                 </li>
               </ul>
-              <p className="mt-4">
+              <p className="mt-4 text-card-foreground">
                 For more projects, check out my{" "}
                 <Button asChild variant="link" className="p-0 h-auto">
                   <a href="https://github.com/K1ssSh0t" target="_blank" rel="noopener noreferrer">
@@ -238,28 +235,27 @@ function App() {
                   </a>
                 </Button>
               </p>
-
             </CardContent>
           </Card>
         </ScrollArea>
       </Section>
 
       <Section id="contact">
-        <Card className="max-w-prose w-full">
+        <Card>
           <CardHeader>
             <CardTitle>Contact</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className=" mb-2">
+            <p className="text-card-foreground mb-4">
               Feel free to reach out via email or connect with me on GitHub!
             </p>
             <div className="flex flex-col items-center space-y-2">
-              <Button asChild variant="link" className="p-0 h-auto">
+              <Button asChild variant="link">
                 <a href="mailto:angel.velasquez.dev@gmail.com">
                   angelomarmatias@gmail.com
                 </a>
               </Button>
-              <Button asChild variant="link" className="p-0 h-auto">
+              <Button asChild variant="link">
                 <a href="https://github.com/K1ssSh0t" target="_blank" rel="noopener noreferrer">
                   github.com/K1ssSh0t
                 </a>
@@ -274,7 +270,7 @@ function App() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
-        <p className="text-sm text-secondary">
+        <p className="text-foreground text-sm">
           © {new Date().getFullYear()} Angel Omar Matias Velasquez. All rights reserved.
         </p>
       </motion.div>
