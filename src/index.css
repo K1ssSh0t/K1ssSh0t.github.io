@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Share+Tech+Mono&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -99,7 +100,8 @@
 
 html {
   scroll-snap-type: y mandatory;
-  font-family: "Courier New", "Monaco", "Menlo", "Consolas", monospace;
+  /* font-family: "Courier New", "Monaco", "Menlo", "Consolas", monospace; */
+  font-family: "Orbitron", monospace;
   scroll-behavior: smooth;
 }
 
@@ -184,21 +186,24 @@ html {
 }
 
 .nier-text {
-  font-family: "Courier New", "Monaco", "Menlo", "Consolas", monospace;
+  /* font-family: "Courier New", "Monaco", "Menlo", "Consolas", monospace; */
+  font-family: "Share Tech Mono", monospace;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 400;
 }
 
 .nier-title {
-  font-family: "Arial", "Helvetica", sans-serif;
+  /* font-family: "Arial", "Helvetica", sans-serif; */
+  font-family: "Orbitron", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.2em;
 }
 
 .nier-mono {
-  font-family: "Courier New", "Monaco", "Menlo", "Consolas", monospace;
+  /* font-family: "Courier New", "Monaco", "Menlo", "Consolas", monospace; */
+  font-family: "Orbitron", monospace;
   font-weight: 400;
 }
 
