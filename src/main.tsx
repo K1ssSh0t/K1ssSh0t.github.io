@@ -9,7 +9,7 @@ import { ThemeProvider } from '@/components/theme-provider.tsx'
 // import Services from './Services'
 
 createRoot(document.getElementById('root')!).render(
-  <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+  <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
     <HashRouter>
       <StrictMode>
         <Routes>
