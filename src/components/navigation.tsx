@@ -91,8 +91,8 @@ export function Navigation() {
                             <button
                                 onClick={() => scrollToSection(item.id)}
                                 className={cn(
-                                    "nier-mono text-xs py-2 pl-8 pr-4 relative transition-all duration-300 hover:text-red-500",
-                                    activeSection === item.id ? "text-red-500" : "text-white/70",
+                                    "nier-mono text-xs py-2 pl-8 pr-4 relative transition-all duration-300 hover:text-red-500   cursor-pointer",
+                                    activeSection === item.id ? "text-red-500 pointer-events-none" : "text-white/70 ",
                                 )}
                             >
                                 <span className="absolute left-0 top-1/2 -translate-y-1/2 w-6 h-[1px] bg-white/30 group-hover:bg-red-500/50 transition-colors" />

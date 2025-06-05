@@ -10,6 +10,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Navigation } from "@/components/navigation"
 
 function useParallax(value: any, distance: number) {
@@ -182,134 +183,248 @@ export default function App() {
           </Section>
 
           <Section id="projects">
-            <Card className="w-full h-[80vh]">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <span className="text-red-500">{">"}</span>
-                  PROJECTS.LOG
-                  <span className="text-xs text-muted-foreground nier-mono">[5 ENTRIES FOUND]</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="nier-mono text-xs text-green-400 mb-4">{"> ACCESSING PROJECT DATABASE..."}</div>
-                <ScrollArea className="h-[60vh]">
-                  <div className="space-y-4">
-                    {[
-                      {
-                        title: "FULL_STACK_TODOS_APP",
-                        url: "https://github.com/K1ssSh0t/full-stack-todos-app",
-                        description:
-                          "TODOS APP BUILT WITH NEXT.JS 13 AND SUPABASE. FULL-STACK PROJECT DEMONSTRATING AUTHENTICATION, CRUD, AND MODERN UI.",
-                        tags: ["NEXT.JS", "SUPABASE", "REACT"],
-                        status: "DEPLOYED",
-                      },
-                      {
-                        title: "RN_FGO_API",
-                        url: "https://github.com/K1ssSh0t/rn-fgo-api",
-                        description:
-                          "REACT NATIVE MOBILE APP THAT USES AN API FROM FATE/GRAND ORDER. SHOWCASES MOBILE DEVELOPMENT AND API INTEGRATION SKILLS.",
-                        tags: ["REACT NATIVE", "API", "MOBILE"],
-                        status: "ACTIVE",
-                      },
-                      {
-                        title: "PROYECTO_GIMNASIO",
-                        url: "https://github.com/K1ssSh0t/proyecto-gimnasio",
-                        description:
-                          "GYM MANAGEMENT PROJECT USING TYPESCRIPT AND MODERN WEB TECHNOLOGIES, INCLUDING STRIPE AND SUPABASE.",
-                        tags: ["TYPESCRIPT", "STRIPE", "SUPABASE"],
-                        status: "STABLE",
-                      },
-                      {
-                        title: "MOVIE_RESERVATION_SYSTEM",
-                        url: "https://github.com/K1ssSh0t/ts-movie-reservation-system",
-                        description:
-                          "MOVIE RESERVATION SYSTEM BUILT WITH TYPESCRIPT, HONO, BUN, DRIZZLE ORM, AND POSTGRESQL.",
-                        tags: ["TYPESCRIPT", "HONO", "POSTGRESQL"],
-                        status: "BETA",
-                      },
-                      {
-                        title: "TS_REALTIME_LEADERBOARD",
-                        url: "https://github.com/K1ssSh0t/ts-realtime-leaderboard",
-                        description:
-                          "REALTIME LEADERBOARD BUILT WITH HONO, BUN AND REDIS. SHOWCASES BACKEND DEVELOPMENT AND DATABASE MANAGEMENT SKILLS.",
-                        tags: ["HONO", "BUN", "REDIS"],
-                        status: "LIVE",
-                      },
-                    ].map((project, index) => (
-                      <Card key={index} className="bg-muted/50">
-                        <CardHeader>
-                          <div className="flex items-center justify-between">
-                            <CardTitle className="text-base flex items-center gap-2">
-                              <span className="text-red-500 nier-mono text-xs">
-                                {"[" + String(index + 1).padStart(2, "0") + "]"}
-                              </span>
-                              <a
-                                href={project.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="hover:text-red-500 transition-colors"
-                              >
-                                {project.title}
-                              </a>
-                            </CardTitle>
-                            <div className="flex items-center gap-2">
-                              <span
-                                className={`text-xs nier-mono px-2 py-1 border ${project.status === "DEPLOYED"
-                                  ? "text-green-400 border-green-400"
-                                  : project.status === "LIVE"
-                                    ? "text-blue-400 border-blue-400"
-                                    : project.status === "ACTIVE"
-                                      ? "text-yellow-400 border-yellow-400"
-                                      : project.status === "BETA"
-                                        ? "text-orange-400 border-orange-400"
-                                        : "text-gray-400 border-gray-400"
-                                  }`}
-                              >
-                                {project.status}
-                              </span>
-                              <HoverCard>
-                                <HoverCardTrigger>
-                                  <Badge variant="destructive" className="cursor-pointer">
-                                    INFO
-                                  </Badge>
-                                </HoverCardTrigger>
-                                <HoverCardContent className="w-80 bg-black border border-red-500">
-                                  <div className="space-y-2">
-                                    <h4 className="text-sm font-semibold nier-title">{project.title}</h4>
-                                    <p className="text-xs nier-mono">{project.description}</p>
-                                    <div className="flex gap-1 flex-wrap">
-                                      {project.tags.map((tag) => (
-                                        <Badge key={tag} variant="outline" className="text-xs">
-                                          {tag}
-                                        </Badge>
-                                      ))}
+
+            <Tabs defaultValue="projects" className="w-full">
+              <TabsList>
+                <TabsTrigger value="projects" className=" cursor-pointer">Projects</TabsTrigger>
+                <TabsTrigger value="side-projects" className=" cursor-pointer ">Side Projects</TabsTrigger>
+              </TabsList>
+              <TabsContent value="projects">
+                <Card className="w-full h-[80vh]">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <span className="text-red-500">{">"}</span>
+                      PROJECTS.LOG
+                      <span className="text-xs text-muted-foreground nier-mono">[5 ENTRIES FOUND]</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="nier-mono text-xs text-green-400 mb-4">{"> ACCESSING PROJECT DATABASE..."}</div>
+                    <ScrollArea className="h-[60vh]">
+                      <div className="space-y-4">
+                        {[
+                          {
+                            title: "FULL_STACK_TODOS_APP",
+                            url: "https://github.com/K1ssSh0t/full-stack-todos-app",
+                            description:
+                              "TODOS APP BUILT WITH NEXT.JS 13 AND SUPABASE. FULL-STACK PROJECT DEMONSTRATING AUTHENTICATION, CRUD, AND MODERN UI.",
+                            tags: ["NEXT.JS", "SUPABASE", "REACT"],
+                            status: "DEPLOYED",
+                          },
+                          {
+                            title: "RN_FGO_API",
+                            url: "https://github.com/K1ssSh0t/rn-fgo-api",
+                            description:
+                              "REACT NATIVE MOBILE APP THAT USES AN API FROM FATE/GRAND ORDER. SHOWCASES MOBILE DEVELOPMENT AND API INTEGRATION SKILLS.",
+                            tags: ["REACT NATIVE", "API", "MOBILE"],
+                            status: "ACTIVE",
+                          },
+                          {
+                            title: "PROYECTO_GIMNASIO",
+                            url: "https://github.com/K1ssSh0t/proyecto-gimnasio",
+                            description:
+                              "GYM MANAGEMENT PROJECT USING TYPESCRIPT AND MODERN WEB TECHNOLOGIES, INCLUDING STRIPE AND SUPABASE.",
+                            tags: ["TYPESCRIPT", "STRIPE", "SUPABASE"],
+                            status: "STABLE",
+                          },
+                          {
+                            title: "MOVIE_RESERVATION_SYSTEM",
+                            url: "https://github.com/K1ssSh0t/ts-movie-reservation-system",
+                            description:
+                              "MOVIE RESERVATION SYSTEM BUILT WITH TYPESCRIPT, HONO, BUN, DRIZZLE ORM, AND POSTGRESQL.",
+                            tags: ["TYPESCRIPT", "HONO", "POSTGRESQL"],
+                            status: "BETA",
+                          },
+                          {
+                            title: "TS_REALTIME_LEADERBOARD",
+                            url: "https://github.com/K1ssSh0t/ts-realtime-leaderboard",
+                            description:
+                              "REALTIME LEADERBOARD BUILT WITH HONO, BUN AND REDIS. SHOWCASES BACKEND DEVELOPMENT AND DATABASE MANAGEMENT SKILLS.",
+                            tags: ["HONO", "BUN", "REDIS"],
+                            status: "LIVE",
+                          },
+                        ].map((project, index) => (
+                          <Card key={index} className="bg-muted/50">
+                            <CardHeader>
+                              <div className="flex items-center justify-between">
+                                <CardTitle className="text-base flex items-center gap-2">
+                                  <span className="text-red-500 nier-mono text-xs">
+                                    {"[" + String(index + 1).padStart(2, "0") + "]"}
+                                  </span>
+                                  <a
+                                    href={project.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-red-500 transition-colors"
+                                  >
+                                    {project.title}
+                                  </a>
+                                </CardTitle>
+                                <div className="flex items-center gap-2">
+                                  <span
+                                    className={`text-xs nier-mono px-2 py-1 border ${project.status === "DEPLOYED"
+                                      ? "text-green-400 border-green-400"
+                                      : project.status === "LIVE"
+                                        ? "text-blue-400 border-blue-400"
+                                        : project.status === "ACTIVE"
+                                          ? "text-yellow-400 border-yellow-400"
+                                          : project.status === "BETA"
+                                            ? "text-orange-400 border-orange-400"
+                                            : "text-gray-400 border-gray-400"
+                                      }`}
+                                  >
+                                    {project.status}
+                                  </span>
+                                  <HoverCard>
+                                    <HoverCardTrigger>
+                                      <Badge variant="destructive" className="cursor-pointer">
+                                        INFO
+                                      </Badge>
+                                    </HoverCardTrigger>
+                                    <HoverCardContent className="w-80 bg-black border border-red-500">
+                                      <div className="space-y-2">
+                                        <h4 className="text-sm font-semibold nier-title text-start leading-tight break-words overflow-hidden">{project.title}</h4>
+                                        <p className="text-xs nier-mono">{project.description}</p>
+                                        <div className="flex gap-1 flex-wrap">
+                                          {project.tags.map((tag) => (
+                                            <Badge key={tag} variant="outline" className="text-xs">
+                                              {tag}
+                                            </Badge>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    </HoverCardContent>
+                                  </HoverCard>
+                                </div>
+                              </div>
+                            </CardHeader>
+                            <CardContent>
+                              <p className="text-xs nier-mono text-muted-foreground">{project.description}</p>
+                            </CardContent>
+                          </Card>
+                        ))}
+                      </div>
+                    </ScrollArea>
+
+                    <Separator className="my-6 bg-border" />
+
+                    <div className="text-center">
+                      <div className="nier-mono text-xs text-muted-foreground mb-2">{"> EXTERNAL REPOSITORY ACCESS"}</div>
+                      <Button asChild variant="outline">
+                        <a href="https://github.com/K1ssSh0t" target="_blank" rel="noopener noreferrer">
+                          VIEW_ALL_PROJECTS {">>"}
+                        </a>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+              <TabsContent value="side-projects" > <Card className="w-full h-[80vh]">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <span className="text-red-500">{">"}</span>
+                    SIDE-PROJECTS.LOG
+                    <span className="text-xs text-muted-foreground nier-mono">[2 ENTRIES FOUND]</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="nier-mono text-xs text-green-400 mb-4">{"> ACCESSING PROJECT DATABASE..."}</div>
+                  <ScrollArea className="h-[60vh]">
+                    <div className="space-y-4">
+                      {[
+                        {
+                          title: "  SUIKA GAME LIKE",
+                          url: "https://github.com/K1ssSh0t/balls-game",
+                          description:
+                            "A SUIKA GAME LIKE MADE IN REACT WITH PHASER.JS.",
+                          tags: ["PHASER.JS", "TYPESCRIPT", "REACT"],
+                          status: "DEPLOYED",
+                        },
+                        {
+                          title: "WEB CRAWLER",
+                          url: "https://github.com/K1ssSh0t/go-web-crawler",
+                          description:
+                            "GO APP THAT CRAWLS FROM A STARTING URL AND A GIVEN DEEP, SAVES IS RESULTS TO A DB. ",
+                          tags: ["GOLANG", "WEB"],
+                          status: "ACTIVE",
+                        },
+                       
+                      ].map((project, index) => (
+                        <Card key={index} className="bg-muted/50">
+                          <CardHeader>
+                            <div className="flex items-center justify-between">
+                              <CardTitle className="text-base flex items-center gap-2">
+                                <span className="text-red-500 nier-mono text-xs">
+                                  {"[" + String(index + 1).padStart(2, "0") + "]"}
+                                </span>
+                                <a
+                                  href={project.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="hover:text-red-500 transition-colors"
+                                >
+                                  {project.title}
+                                </a>
+                              </CardTitle>
+                              <div className="flex items-center gap-2">
+                                <span
+                                  className={`text-xs nier-mono px-2 py-1 border ${project.status === "DEPLOYED"
+                                    ? "text-green-400 border-green-400"
+                                    : project.status === "LIVE"
+                                      ? "text-blue-400 border-blue-400"
+                                      : project.status === "ACTIVE"
+                                        ? "text-yellow-400 border-yellow-400"
+                                        : project.status === "BETA"
+                                          ? "text-orange-400 border-orange-400"
+                                          : "text-gray-400 border-gray-400"
+                                    }`}
+                                >
+                                  {project.status}
+                                </span>
+                                <HoverCard>
+                                  <HoverCardTrigger>
+                                    <Badge variant="destructive" className="cursor-pointer">
+                                      INFO
+                                    </Badge>
+                                  </HoverCardTrigger>
+                                  <HoverCardContent className="w-80 bg-black border border-red-500">
+                                    <div className="space-y-2">
+                                      <h4 className="text-sm font-semibold nier-title text-start leading-tight break-words overflow-hidden" >{project.title}</h4>
+                                      <p className="text-xs nier-mono">{project.description}</p>
+                                      <div className="flex gap-1 flex-wrap">
+                                        {project.tags.map((tag) => (
+                                          <Badge key={tag} variant="outline" className="text-xs">
+                                            {tag}
+                                          </Badge>
+                                        ))}
+                                      </div>
                                     </div>
-                                  </div>
-                                </HoverCardContent>
-                              </HoverCard>
+                                  </HoverCardContent>
+                                </HoverCard>
+                              </div>
                             </div>
-                          </div>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-xs nier-mono text-muted-foreground">{project.description}</p>
-                        </CardContent>
-                      </Card>
-                    ))}
+                          </CardHeader>
+                          <CardContent>
+                            <p className="text-xs nier-mono text-muted-foreground">{project.description}</p>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </ScrollArea>
+
+                  <Separator className="my-6 bg-border" />
+
+                  <div className="text-center">
+                    <div className="nier-mono text-xs text-muted-foreground mb-2">{"> EXTERNAL REPOSITORY ACCESS"}</div>
+                    <Button asChild variant="outline">
+                      <a href="https://github.com/K1ssSh0t" target="_blank" rel="noopener noreferrer">
+                        VIEW_ALL_PROJECTS {">>"}
+                      </a>
+                    </Button>
                   </div>
-                </ScrollArea>
-
-                <Separator className="my-6 bg-border" />
-
-                <div className="text-center">
-                  <div className="nier-mono text-xs text-muted-foreground mb-2">{"> EXTERNAL REPOSITORY ACCESS"}</div>
-                  <Button asChild variant="outline">
-                    <a href="https://github.com/K1ssSh0t" target="_blank" rel="noopener noreferrer">
-                      VIEW_ALL_PROJECTS {">>"}
-                    </a>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card></TabsContent>
+            </Tabs>
           </Section>
 
           <Section id="contact">
